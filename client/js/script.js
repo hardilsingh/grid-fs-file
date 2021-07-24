@@ -20,8 +20,11 @@ Dropzone.options.myAwesomeDropzone = {
       } else {
         localStorage.setItem("fileUploads", JSON.stringify([data]));
       }
-      const li = document.createElement("a");
-      li.appendChild(document.createTextNode(data.originalName));
+      var a = document.createElement("a");
+      a.textContent = data.originalName
+      a.setAttribute("href", `/file/${data.fileName}`)
+      a.setAttribute("target", `_blank`)
+      li.appendChild(a);
       ul.appendChild(li);
     });
   },
