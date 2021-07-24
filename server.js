@@ -8,7 +8,7 @@ const path = require("path");
 app.use(express.json());
 
 const MONGO =
-  "mongodb+srv://hardilsingh87:Hardil@123@cluster0.g2ub2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+  "mongodb+srv://prince:Prince@cluster0.sol40.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 const connect = mongoose.createConnection(MONGO, {
   useUnifiedTopology: true,
