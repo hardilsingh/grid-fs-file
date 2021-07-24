@@ -20,6 +20,7 @@ Dropzone.options.myAwesomeDropzone = {
       } else {
         localStorage.setItem("fileUploads", JSON.stringify([data]));
       }
+      const li = document.createElement("li");
       var a = document.createElement("a");
       a.textContent = data.originalName
       a.setAttribute("href", `/file/${data.fileName}`)
