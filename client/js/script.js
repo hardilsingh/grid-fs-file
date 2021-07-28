@@ -37,11 +37,19 @@ const renderFiles = () => {
   if (storage) {
     storage.forEach((el) => {
       const li = document.createElement("li");
-      var a = document.createElement("a");
-      a.textContent = el.originalName
-      a.setAttribute("href", `/file/${el.fileName}`)
-      a.setAttribute("target", `_blank`)
-      li.appendChild(a);
+      var p = document.createElement("p");
+      const downloadBtn = document.createElement("a");
+      downloadBtn.textContent = "Download"
+      downloadBtn.setAttribute("href", `/file/${el.fileName}`)
+      downloadBtn.setAttribute("download", `${el.fileName}`)
+      const openFile = document.createElement("a");
+      openFile.textContent = "Open"
+      openFile.setAttribute("href", `/file/${el.fileName}`)
+      openFile.setAttribute("target", `blank`)
+      p.textContent = el.originalName
+      li.appendChild(p);
+      li.appendChild(downloadBtn);
+      li.appendChild(openFile);
       ul.appendChild(li);
     });
   }
