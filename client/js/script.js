@@ -21,11 +21,19 @@ Dropzone.options.myAwesomeDropzone = {
         localStorage.setItem("fileUploads", JSON.stringify([data]));
       }
       const li = document.createElement("li");
-      var a = document.createElement("a");
-      a.textContent = data.originalName
-      a.setAttribute("href", `/file/${data.fileName}`)
-      a.setAttribute("target", `_blank`)
-      li.appendChild(a);
+      var p = document.createElement("p");
+      const downloadBtn = document.createElement("a");
+      downloadBtn.textContent = "Download"
+      downloadBtn.setAttribute("href", `/file/${data.fileName}`)
+      downloadBtn.setAttribute("download", `${data.fileName}`)
+      const openFile = document.createElement("a");
+      openFile.textContent = "Open"
+      openFile.setAttribute("href", `/file/${data.fileName}`)
+      openFile.setAttribute("target", `blank`)
+      p.textContent = data.originalName
+      li.appendChild(p);
+      li.appendChild(downloadBtn);
+      li.appendChild(openFile);
       ul.appendChild(li);
     });
   },
